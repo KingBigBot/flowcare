@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "title": "Navigate Your Health Journey with Confidence",
+    "subtitle": "FlowCare routes you to the most appropriate care setting based on your symptoms, wait times, facility capabilities and your preferences.",
+    "cta": "Start Check"
+  },
+  "valueProps": [
+    {
+      "title": "Reduce unnecessary ED visits",
+      "description": "FlowCare helps patients avoid long waits by directing them to the right care level."
+    },
+    {
+      "title": "Smart routing using demo data",
+      "description": "We leverage your symptoms, demo wait time estimates, facility capabilities and your preferences to recommend care."
+    },
+    {
+      "title": "Improve experience & system efficiency",
+      "description": "Our platform empowers patients and reduces strain on emergency departments."
+    }
+  ],
+  "howItWorks": {
+    "title": "How It Works",
+    "steps": [
+      "Create your profile and set your preferences.",
+      "Enter your symptoms and severity.",
+      "FlowCare analyzes demo wait times and facility capabilities.",
+      "We recommend the best care setting and rank nearby facilities.",
+      "You review results, view maps and directions, and choose your care."
+    ]
+  },
+  "operationalConcept": {
+    "title": "Operational Concept",
+    "description": "This MVP uses a demo dataset for presentation purposes. In production, FlowCare would integrate real-time facility feeds and partner data to provide accurate wait times and capabilities, adhering to governance and compliance frameworks."
+  },
+  "safety": {
+    "title": "Safety & Governance",
+    "points": [
+      "FlowCare is not a diagnosis tool. Always call 911 or go to the Emergency Department if you experience life‑threatening symptoms.",
+      "Red flags selected during the intake will automatically recommend the Emergency Department with clear escalation guidance.",
+      "We emphasize equity, accessibility and language preferences in our recommendations."
+    ]
+  },
+  "privacy": {
+    "title": "Privacy",
+    "description": "We do not require an account. Your profile and triage inputs are stored only on your device. This is a demo; please do not enter sensitive personal information."
+  },
+  "lastUpdatedDemo": "Last updated: 2026-01-31 12:00 (Demo)"
+}
