@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlowCare – Find the Right Care Setting</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Load Leaflet for maps -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+4mT6YaoCLHCFLXsQVDiW08LomC87zabU091a/0o0="
+    crossorigin=""
+  />
+  <script
+    defer
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-o9N1jJ9C+2FYClbA4aNUdhWlHh4M1sCwEAH3kPQ3Mi0="
+    crossorigin=""
+  ></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">FlowCare</div>
+      <button class="mobile-nav-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="nav-links">
+        <li><a href="#home" data-route>Home</a></li>
+        <li><a href="#triage" data-route>Triage</a></li>
+        <li><a href="#facilities" data-route>Facilities</a></li>
+        <li><a href="#profile" data-route>Profile</a></li>
+        <li><a href="#demo-admin" data-route>Demo Admin</a></li>
+        <li><a href="#privacy" data-route>Safety &amp; Privacy</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="app">
+    <!-- Home / Landing Page -->
+    <section id="home" class="page active">
+      <div class="hero">
+        <h1 id="hero-title">Loading…</h1>
+        <p id="hero-subtitle"></p>
+        <button id="hero-cta" class="btn primary">Start Check</button>
+      </div>
+      <div class="value-props" id="value-props"></div>
+      <div class="how-it-works" id="how-it-works"></div>
+      <div class="operational-concept" id="operational-concept"></div>
+    </section>
+
+    <!-- Triage Page -->
+    <section id="triage" class="page hidden">
+      <h2>Triage – Symptom Check</h2>
+      <div id="triage-container">
+        <!-- wizard steps inserted by JS -->
+      </div>
+    </section>
+
+    <!-- Results Page -->
+    <section id="results" class="page hidden">
+      <h2>Results</h2>
+      <div id="results-summary"></div>
+      <div id="results-filters"></div>
+      <div class="results-container">
+        <div id="facility-list"></div>
+        <div id="map" class="map"></div>
+      </div>
+    </section>
+
+    <!-- Facilities Page -->
+    <section id="facilities" class="page hidden">
+      <h2>All Facilities</h2>
+      <div id="all-facilities-list"></div>
+    </section>
+
+    <!-- Profile Page -->
+    <section id="profile" class="page hidden">
+      <h2>Your Profile</h2>
+      <form id="profile-form">
+        <div class="form-group">
+          <label for="profile-name">Name (optional)</label>
+          <input type="text" id="profile-name" name="name" />
+        </div>
+        <div class="form-group">
+          <label for="profile-age">Age</label>
+          <input type="number" id="profile-age" name="age" min="0" required />
+        </div>
+        <div class="form-group">
+          <label for="profile-postal">Postal Code</label>
+          <input type="text" id="profile-postal" name="postal" maxlength="7" placeholder="M5V 1A1" required />
+        </div>
+        <div class="form-group">
+          <label for="profile-language">Language Preference</label>
+          <select id="profile-language" name="language">
+            <option value="English">English</option>
+            <option value="French">French</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <fieldset class="form-group">
+          <legend>Mobility/Accessibility Needs</legend>
+          <label><input type="checkbox" id="profile-wheelchair" name="mobility" value="wheelchair" /> Wheelchair access</label>
+          <label><input type="checkbox" id="profile-lowvision" name="mobility" value="lowvision" /> Low vision</label>
+        </fieldset>
+        <fieldset class="form-group">
+          <legend>Chronic Conditions</legend>
+          <label><input type="checkbox" name="chronic" value="diabetes" /> Diabetes</label>
+          <label><input type="checkbox" name="chronic" value="asthma" /> Asthma</label>
+          <label><input type="checkbox" name="chronic" value="heart" /> Heart disease</label>
+        </fieldset>
+        <div class="form-group">
+          <label><input type="checkbox" id="profile-pregnant" name="pregnant" /> Pregnancy</label>
+        </div>
+        <div class="form-group">
+          <label><input type="checkbox" id="profile-pediatric" name="pediatric" /> Pediatric patient (under 16)</label>
+        </div>
+        <div class="form-group">
+          <label for="profile-radius">Preferred Travel Radius (km)</label>
+          <input type="number" id="profile-radius" name="radius" min="1" max="50" value="10" />
+        </div>
+        <div class="form-group">
+          <label for="profile-transport">Transportation</label>
+          <select id="profile-transport" name="transport">
+            <option value="car">Car</option>
+            <option value="transit">Transit</option>
+            <option value="walk">Walk</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn primary">Save Profile</button>
+          <button type="button" id="reset-profile" class="btn secondary">Reset Demo</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Demo Admin Page -->
+    <section id="demo-admin" class="page hidden">
+      <h2>Demo Admin Mode</h2>
+      <p>Use this mode to override facility wait times and add or remove facilities for the live demo. Changes persist only in your browser via LocalStorage. To edit the source-of-truth content for the whole site, use the CMS at <a href="/admin">/admin</a>.</p>
+      <div class="admin-controls">
+        <button id="admin-add" class="btn secondary">Add Facility</button>
+        <button id="admin-reset" class="btn secondary">Reset Overrides</button>
+        <button id="admin-export" class="btn secondary">Export JSON</button>
+        <input type="file" id="admin-import-input" accept="application/json" hidden />
+        <button id="admin-import" class="btn secondary">Import JSON</button>
+      </div>
+      <div id="admin-list"></div>
+    </section>
+
+    <!-- Privacy & Safety Page -->
+    <section id="privacy" class="page hidden">
+      <h2>Safety &amp; Privacy</h2>
+      <div id="privacy-content"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2026 FlowCare. Demo data only – not real‑time.</p>
+  </footer>
+</body>
+</html>
