@@ -1,0 +1,85 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - file: "content/site.json"
+        label: "Site Settings"
+        name: "site"
+        format: "json"
+        fields:
+          - label: Hero
+            name: hero
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: text }
+              - { label: Call to Action Text, name: cta, widget: string }
+          - label: Value Propositions
+            name: valueProps
+            widget: list
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: How It Works
+            name: howItWorks
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Steps
+                name: steps
+                widget: list
+                field: { label: Step, name: step, widget: string }
+          - label: Operational Concept
+            name: operationalConcept
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - label: Safety & Governance
+            name: safety
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Points
+                name: points
+                widget: list
+                field: { label: Point, name: point, widget: string }
+          - label: Privacy
+            name: privacy
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Description, name: description, widget: text }
+          - { label: "Last Updated (Demo)", name: lastUpdatedDemo, widget: string }
+  - name: "facilities"
+    label: "Facilities"
+    files:
+      - file: "content/facilities.json"
+        label: "Facilities"
+        name: "facilities"
+        format: "json"
+        fields:
+          - { label: "Last Updated", name: lastUpdated, widget: string }
+          - label: Facilities
+            name: facilities
+            widget: list
+            fields:
+              - { label: ID, name: id, widget: number }
+              - { label: Name, name: name, widget: string }
+              - { label: Type, name: type, widget: select, options: ["ED", "Urgent", "Walk-in", "Virtual"] }
+              - { label: Wait Time (minutes), name: waitTime, widget: number }
+              - label: Capabilities
+                name: capabilities
+                widget: list
+                field: { label: Capability, name: capability, widget: string }
+              - { label: Schedule (HH:MM-HH:MM), name: schedule, widget: string }
+              - { label: Address, name: address, widget: string }
+              - { label: Latitude, name: lat, widget: number }
+              - { label: Longitude, name: lon, widget: number }
