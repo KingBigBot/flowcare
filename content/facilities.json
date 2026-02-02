@@ -1,0 +1,115 @@
+{
+  "lastUpdated": "2026-01-31 12:00 (Demo)",
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Downtown Urgent Care (Demo)",
+      "type": "Urgent",
+      "waitTime": 55,
+      "capabilities": ["x-ray", "sutures", "wheelchair"],
+      "schedule": "10:00-22:00",
+      "address": "123 Downtown St, Toronto, ON",
+      "lat": 43.6540,
+      "lon": -79.3870
+    },
+    {
+      "id": 2,
+      "name": "Queen West Walk-In Clinic (Demo)",
+      "type": "Walk-in",
+      "waitTime": 25,
+      "capabilities": ["primary care", "prescriptions"],
+      "schedule": "09:00-19:00",
+      "address": "456 Queen St W, Toronto, ON",
+      "lat": 43.6470,
+      "lon": -79.4020
+    },
+    {
+      "id": 3,
+      "name": "Midtown Family Clinic (Demo)",
+      "type": "Walk-in",
+      "waitTime": 40,
+      "capabilities": ["pediatrics", "immunizations"],
+      "schedule": "09:00-18:00",
+      "address": "789 Yonge St, Toronto, ON",
+      "lat": 43.7120,
+      "lon": -79.3970
+    },
+    {
+      "id": 4,
+      "name": "Harbourfront Virtual Care (Demo)",
+      "type": "Virtual",
+      "waitTime": 12,
+      "capabilities": ["renewals", "minor illness"],
+      "schedule": "00:00-24:00",
+      "address": "Virtual",
+      "lat": 43.6400,
+      "lon": -79.3800
+    },
+    {
+      "id": 5,
+      "name": "North End Urgent & Imaging (Demo)",
+      "type": "Urgent",
+      "waitTime": 80,
+      "capabilities": ["x-ray", "fracture checks"],
+      "schedule": "11:00-23:00",
+      "address": "321 North Ave, Toronto, ON",
+      "lat": 43.7340,
+      "lon": -79.3670
+    },
+    {
+      "id": 6,
+      "name": "Eastside Pediatric Clinic (Demo)",
+      "type": "Walk-in",
+      "waitTime": 35,
+      "capabilities": ["pediatrics"],
+      "schedule": "10:00-20:00",
+      "address": "234 Eastside Rd, Toronto, ON",
+      "lat": 43.6950,
+      "lon": -79.2620
+    },
+    {
+      "id": 7,
+      "name": "West Toronto Emergency Dept (Demo)",
+      "type": "ED",
+      "waitTime": 247,
+      "capabilities": ["emergency", "imaging"],
+      "schedule": "00:00-24:00",
+      "address": "987 West Toronto Rd, Toronto, ON",
+      "lat": 43.6500,
+      "lon": -79.4550
+    },
+    {
+      "id": 8,
+      "name": "Central Toronto Emergency Dept (Demo)",
+      "type": "ED",
+      "waitTime": 360,
+      "capabilities": ["emergency", "mental health"],
+      "schedule": "00:00-24:00",
+      "address": "654 Central Ave, Toronto, ON",
+      "lat": 43.6600,
+      "lon": -79.3800
+    },
+    {
+      "id": 9,
+      "name": "Scarborough Rapid Clinic (Demo)",
+      "type": "Walk-in",
+      "waitTime": 18,
+      "capabilities": ["primary care"],
+      "schedule": "09:00-17:00",
+      "address": "432 Scarborough Rd, Toronto, ON",
+      "lat": 43.7740,
+      "lon": -79.2550
+    },
+    {
+      "id": 10,
+      "name": "North York Urgent Care (Demo)",
+      "type": "Urgent",
+      "waitTime": 65,
+      "capabilities": ["sutures", "asthma"],
+      "schedule": "10:00-22:00",
+      "address": "876 North York Blvd, Toronto, ON",
+      "lat": 43.7700,
+      "lon": -79.4130
+    }
+  ]
+}
